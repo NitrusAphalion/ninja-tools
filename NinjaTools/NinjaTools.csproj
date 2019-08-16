@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{158752C3-43BA-472C-B293-37B0A2BFAC5C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NinjaTools</RootNamespace>
+    <AssemblyName>NinjaTools</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icons\application.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=5.0.3.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
+      <HintPath>..\packages\AvalonEdit.5.0.4\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ookii.Dialogs.Wpf, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0c15020868fd6249, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ookii.Dialogs.1.0\lib\net35\Ookii.Dialogs.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="Stylet, Version=1.1.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stylet.1.1.22\lib\net45\Stylet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="Interfaces\IDelayedLoading.cs" />
+    <Compile Include="Interfaces\IDocumentType.cs" />
+    <Compile Include="Pages\FilterContainerView.xaml.cs">
+      <DependentUpon>FilterContainerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FilterContainerViewModel.cs" />
+    <Compile Include="Pages\FilterControlView.xaml.cs">
+      <DependentUpon>FilterControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FilterControlViewModel.cs" />
+    <Compile Include="Pages\Helpers\Serialization.cs" />
+    <Compile Include="Pages\Helpers\TabHelpers.cs" />
+    <Compile Include="Pages\Helpers\ValueConverters.cs" />
+    <Compile Include="Interfaces\ICloseableTabItem.cs" />
+    <Compile Include="Interfaces\IStatusBarText.cs" />
+    <Compile Include="Pages\Base Classes\CloseableTabItem.cs" />
+    <Compile Include="Pages\DocumentContainerView.xaml.cs">
+      <DependentUpon>DocumentContainerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DocumentContainerViewModel.cs" />
+    <Compile Include="Pages\SdfDocumentView.xaml.cs">
+      <DependentUpon>SdfDocumentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SdfDocumentViewModel.cs" />
+    <Compile Include="Pages\TxtDocumentViewModel.cs" />
+    <Compile Include="Pages\TxtDocumentView.xaml.cs">
+      <DependentUpon>TxtDocumentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\XmlDocumentView.xaml.cs">
+      <DependentUpon>XmlDocumentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\XmlDocumentViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums.cs" />
+    <Compile Include="Models\Database.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Pages\AppView.xaml.cs">
+      <DependentUpon>AppView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AppViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="AvalonEdit\SyntaxHighlighters\log.xshd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AvalonEdit\SyntaxHighlighters\trace.xshd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AvalonEdit\SyntaxHighlighters\xml.xshd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Pages\AppView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\DocumentContainerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FilterContainerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FilterControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SdfDocumentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Themes\DarkTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TxtDocumentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\XmlDocumentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\file_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\file_xml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\file_page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\file_config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Tab\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Unused\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Tab\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\file_template.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\file_multi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\application.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\file_zip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\save_all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\diff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\file_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\file_workspaces.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\closealltabs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\save_all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\replace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\zoom_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\word_wrap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\ToolBar\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\database_table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\TreeView\bullet_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\TreeView\bullet_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\TreeView\bullet_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\application_get.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\application_put.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\application_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Microsoft.VC90.CRT\msvcr90.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sqlceca40.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sqlcecompact40.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sqlceer40EN.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sqlceme40.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sqlceqp40.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sqlcese40.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\MainMenu\help.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

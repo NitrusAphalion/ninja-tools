@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaTools", "NinjaTools\NinjaTools.csproj", "{158752C3-43BA-472C-B293-37B0A2BFAC5C}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{012970C6-1FE7-488B-91E9-1BB7261FB044}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{158752C3-43BA-472C-B293-37B0A2BFAC5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{158752C3-43BA-472C-B293-37B0A2BFAC5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{158752C3-43BA-472C-B293-37B0A2BFAC5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{158752C3-43BA-472C-B293-37B0A2BFAC5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{012970C6-1FE7-488B-91E9-1BB7261FB044}.Debug|Any CPU.ActiveCfg = Debug
+		{012970C6-1FE7-488B-91E9-1BB7261FB044}.Release|Any CPU.ActiveCfg = Release
+		{012970C6-1FE7-488B-91E9-1BB7261FB044}.Release|Any CPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C2856CF-2452-48D9-9844-1D80F3223B9F}
+	EndGlobalSection
+EndGlobal

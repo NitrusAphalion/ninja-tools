@@ -1,0 +1,21 @@
+﻿<ItemsControl
+    x:Class="NinjaTools.Pages.FilterContainerView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NinjaTools.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:s="https://github.com/canton7/Stylet"
+    ItemsSource="{Binding Items}"
+    mc:Ignorable="d">
+    <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+            <StackPanel Orientation="Vertical" />
+        </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+    <ItemsControl.ItemTemplate>
+        <DataTemplate>
+            <local:FilterControlView s:View.Model="{Binding}" />
+        </DataTemplate>
+    </ItemsControl.ItemTemplate>
+</ItemsControl>

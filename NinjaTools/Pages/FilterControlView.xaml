@@ -1,0 +1,277 @@
+﻿<UserControl
+    x:Class="NinjaTools.Pages.FilterControlView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NinjaTools.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:s="https://github.com/canton7/Stylet"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    x:Name="filterControlView"
+    Margin="0,0,0,1"
+    mc:Ignorable="d">
+    <ContentControl x:Name="contentControl">
+        <ContentControl.Resources>
+            <DataTemplate x:Key="SingleCombo">
+                <StackPanel Orientation="Horizontal">
+                    <Button
+                        Margin="4"
+                        BorderThickness="0"
+                        Click="{s:Action OnAddFilter}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        Tag="AddFilter"
+                        Visibility="{Binding DataContext.IsDefault, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <Button.ToolTip>
+                            <ToolTip Content="Add Filter" />
+                        </Button.ToolTip>
+                        <Image Source="/Icons/MainMenu/load.png" />
+                    </Button>
+                    <Button
+                        Margin="4"
+                        BorderThickness="0"
+                        Click="{s:Action OnRemoveFilter}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        Tag="RemoveFilter"
+                        Visibility="{Binding DataContext.IsNotDefault, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <Button.ToolTip>
+                            <ToolTip Content="Remove Filter" />
+                        </Button.ToolTip>
+                        <Image Source="/Icons/Unused/delete.png" />
+                    </Button>
+                    <Label Content="Filter" />
+                    <ComboBox ItemsSource="{Binding DataContext.AvailableBrushes, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" SelectedItem="{Binding DataContext.Group, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Rectangle
+                                    Width="16"
+                                    Height="16"
+                                    Fill="{Binding}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox
+                        Width="100"
+                        DisplayMemberPath="Name"
+                        IsSynchronizedWithCurrentItem="True"
+                        ItemsSource="{Binding DataContext.Filter1Items, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding DataContext.SelectedFilter, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" />
+                </StackPanel>
+            </DataTemplate>
+            <DataTemplate x:Key="DoubleCombo">
+                <StackPanel Orientation="Horizontal">
+                    <Button
+                        Margin="4"
+                        BorderThickness="0"
+                        Click="{s:Action OnAddFilter}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        Tag="AddFilter"
+                        Visibility="{Binding DataContext.IsDefault, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <Button.ToolTip>
+                            <ToolTip Content="Add Filter" />
+                        </Button.ToolTip>
+                        <Image Source="/Icons/MainMenu/load.png" />
+                    </Button>
+                    <Button
+                        Margin="4"
+                        BorderThickness="0"
+                        Click="{s:Action OnRemoveFilter}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        Tag="RemoveFilter"
+                        Visibility="{Binding DataContext.IsNotDefault, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <Button.ToolTip>
+                            <ToolTip Content="Remove Filter" />
+                        </Button.ToolTip>
+                        <Image Source="/Icons/Unused/delete.png" />
+                    </Button>
+                    <Label Content="Filter" />
+                    <ComboBox ItemsSource="{Binding DataContext.AvailableBrushes, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" SelectedItem="{Binding DataContext.Group, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Rectangle
+                                    Width="16"
+                                    Height="16"
+                                    Fill="{Binding}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox
+                        Width="100"
+                        DisplayMemberPath="Name"
+                        IsSynchronizedWithCurrentItem="True"
+                        ItemsSource="{Binding DataContext.Filter1Items, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding DataContext.SelectedFilter, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" />
+                    <Label>
+                        <Label.Resources>
+                            <Style TargetType="{x:Type Label}">
+                                <Setter Property="Foreground" Value="{StaticResource TreeViewForeground}" />
+                                <Setter Property="Width" Value="50" />
+                                <Setter Property="HorizontalContentAlignment" Value="Right" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DataContext.SelectedFilter.Name, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" Value="Account">
+                                        <Setter Property="Content" Value="Name" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding DataContext.SelectedFilter.Name, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" Value="Order">
+                                        <Setter Property="Content" Value="Id" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Resources>
+                    </Label>
+                    <ComboBox
+                        DisplayMemberPath="Name"
+                        IsSynchronizedWithCurrentItem="True"
+                        ItemsSource="{Binding DataContext.Filter2Items, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding DataContext.SelectedFilter2, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" />
+                </StackPanel>
+            </DataTemplate>
+            <DataTemplate x:Key="DoubleDateTime">
+                <StackPanel Orientation="Horizontal">
+                    <Button
+                        Margin="4"
+                        BorderThickness="0"
+                        Click="{s:Action OnAddFilter}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        Tag="AddFilter"
+                        Visibility="{Binding DataContext.IsDefault, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <Button.ToolTip>
+                            <ToolTip Content="Add Filter" />
+                        </Button.ToolTip>
+                        <Image Source="/Icons/MainMenu/load.png" />
+                    </Button>
+                    <Button
+                        Margin="4"
+                        BorderThickness="0"
+                        Click="{s:Action OnRemoveFilter}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        Tag="RemoveFilter"
+                        Visibility="{Binding DataContext.IsNotDefault, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <Button.ToolTip>
+                            <ToolTip Content="Remove Filter" />
+                        </Button.ToolTip>
+                        <Image Source="/Icons/Unused/delete.png" />
+                    </Button>
+                    <Label Content="Filter" />
+                    <ComboBox ItemsSource="{Binding DataContext.AvailableBrushes, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" SelectedItem="{Binding DataContext.Group, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Rectangle
+                                    Width="16"
+                                    Height="16"
+                                    Fill="{Binding}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox
+                        Width="100"
+                        DisplayMemberPath="Name"
+                        IsSynchronizedWithCurrentItem="True"
+                        ItemsSource="{Binding DataContext.Filter1Items, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding DataContext.SelectedFilter, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" />
+                    <Label
+                        Width="50"
+                        HorizontalContentAlignment="Right"
+                        Content="Start" />
+                    <xctk:DateTimeUpDown
+                        Format="Custom"
+                        FormatString="yyyy-MM-dd HH:mm:ss:fff"
+                        Value="{Binding DataContext.StartTime, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" />
+                    <Label Content="End" />
+                    <xctk:DateTimeUpDown
+                        Format="Custom"
+                        FormatString="yyyy-MM-dd HH:mm:ss:fff"
+                        Value="{Binding DataContext.EndTime, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" />
+                </StackPanel>
+            </DataTemplate>
+            <DataTemplate x:Key="SingleTextBox">
+                <StackPanel Orientation="Horizontal">
+                    <Button
+                        Margin="4"
+                        BorderThickness="0"
+                        Click="{s:Action OnAddFilter}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        Tag="AddFilter"
+                        Visibility="{Binding DataContext.IsDefault, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <Button.ToolTip>
+                            <ToolTip Content="Add Filter" />
+                        </Button.ToolTip>
+                        <Image Source="/Icons/MainMenu/load.png" />
+                    </Button>
+                    <Button
+                        Margin="4"
+                        BorderThickness="0"
+                        Click="{s:Action OnRemoveFilter}"
+                        Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                        Tag="RemoveFilter"
+                        Visibility="{Binding DataContext.IsNotDefault, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <Button.ToolTip>
+                            <ToolTip Content="Remove Filter" />
+                        </Button.ToolTip>
+                        <Image Source="/Icons/Unused/delete.png" />
+                    </Button>
+                    <Label Content="Filter" />
+                    <ComboBox ItemsSource="{Binding DataContext.AvailableBrushes, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" SelectedItem="{Binding DataContext.Group, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Rectangle
+                                    Width="16"
+                                    Height="16"
+                                    Fill="{Binding}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox
+                        Width="100"
+                        DisplayMemberPath="Name"
+                        IsSynchronizedWithCurrentItem="True"
+                        ItemsSource="{Binding DataContext.Filter1Items, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding DataContext.SelectedFilter, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" />
+                    <Label
+                        Width="50"
+                        HorizontalContentAlignment="Right"
+                        Content="Search" />
+                    <xctk:WatermarkTextBox
+                        Grid.Column="4"
+                        MinWidth="220"
+                        PreviewKeyDown="{s:Action TextBox_PreviewKeyDown}"
+                        Text="{Binding DataContext.ManualText, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}"
+                        Watermark="Press enter to update" />
+                    <Label Content="" />
+                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding DataContext.RegexMode, Mode=OneWayToSource, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" />
+                    <Label Content="Regex" />
+                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding DataContext.IgnoreCaseMode, Mode=OneWayToSource, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentControl}}}" />
+                    <Label Content="Ignore case" />
+                </StackPanel>
+            </DataTemplate>
+        </ContentControl.Resources>
+        <ContentControl.Style>
+            <Style TargetType="{x:Type ContentControl}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding SelectedFilter.Name}" Value="None">
+                        <Setter Property="ContentTemplate" Value="{StaticResource SingleCombo}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding SelectedFilter.Name}" Value="SystemInfo">
+                        <Setter Property="ContentTemplate" Value="{StaticResource SingleCombo}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding SelectedFilter.Name}" Value="Warning">
+                        <Setter Property="ContentTemplate" Value="{StaticResource SingleCombo}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding SelectedFilter.Name}" Value="Error">
+                        <Setter Property="ContentTemplate" Value="{StaticResource SingleCombo}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding SelectedFilter.Name}" Value="Account">
+                        <Setter Property="ContentTemplate" Value="{StaticResource DoubleCombo}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding SelectedFilter.Name}" Value="Order">
+                        <Setter Property="ContentTemplate" Value="{StaticResource DoubleCombo}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding SelectedFilter.Name}" Value="Time">
+                        <Setter Property="ContentTemplate" Value="{StaticResource DoubleDateTime}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding SelectedFilter.Name}" Value="Manual">
+                        <Setter Property="ContentTemplate" Value="{StaticResource SingleTextBox}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ContentControl.Style>
+    </ContentControl>
+</UserControl>

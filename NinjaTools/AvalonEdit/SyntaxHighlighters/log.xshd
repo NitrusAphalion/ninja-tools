@@ -1,0 +1,54 @@
+﻿<SyntaxDefinition name="TXT" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+  <Color name="Namespaces"      foreground="#559CD6"/>
+  <Color name="Times"           foreground="#D1B4D6"/>
+  <Color name="TimesMS"         foreground="#D3C2D6"/>
+  <Color name="Parenthesis"     foreground="#A6CEA8"/>
+  <Color name="Errors"          foreground="#FF4E4E"/>
+  <Color name="Loading"         foreground="#D7BA7D"/>
+  <Color name="Punctuation"     foreground="#676767"/>
+  <Color name="Equals"          foreground="#D69D85"/>
+  <Color name="Filepaths"       foreground="#7DD7AC"/>
+  <Color name="NonEqualsQuotes" foreground="#7DD7AC"/>
+	<RuleSet>
+    <!-- Namespaces -->
+    <Rule color="Namespaces">(?&lt;=\w\.)[\w\/]+(?=[:\r\n\s]|$)</Rule>
+    <Rule color="Namespaces">(?&lt;=\|)\w+(?=:\s)</Rule>
+    
+    <!-- Times -->
+    <!--<Rule color="Times">(?&lt;=[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]\s)[0-9][0-9](?=:[0-9][0-9]:[0-9][0-9]:)</Rule>-->
+    <!--<Rule color="Times">(?&lt;=[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]\s[0-9][0-9]:)[0-9][0-9](?=:[0-9][0-9]:)</Rule>-->
+    <Rule color="Times">(?&lt;=[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]\s[0-9][0-9]:[0-9][0-9]:)[0-9][0-9](?=:)</Rule>
+    
+    <!-- Times Milliseconds -->
+    <Rule color="TimesMS">(?&lt;=[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]\s[0-9][0-9]:[0-9][0-9]:[0-9][0-9]:)[0-9][0-9][0-9]</Rule>
+    
+    <!-- Equals -->
+    <Rule color="Equals">(?&lt;=ProcessorSpeed\=|PhysicalMemory\=|DisplayAdapters\=|Monitors\=|\.NET/CLR Version\=|ApplicationTimezone\=|LocalTimezone\=).+</Rule>
+    <Rule color="Equals">(?&lt;=\=\s["'])[^'"\r\n]+(?=\s["'])</Rule>
+    <Rule color="Equals">(?&lt;=\=["'])[^'"\r\n]+(?=["'])</Rule>
+    <Rule color="Equals">(?&lt;=\=\s["'])[^'"\r\n]+(?=["'])</Rule>
+    <Rule color="Equals">(?&lt;=\=["'])[^'"\r\n]+(?=\s["'])</Rule>
+    <Rule color="Equals">(?&lt;=\=\s)[^'" \r\n]+|(?&lt;=\=)[^'" \r\n]+</Rule>
+
+    <!-- Parenthesis -->
+    <Rule color="Parenthesis">(?&lt;=\()[^s\)].+(?=\))</Rule>
+    
+    <!-- Errors -->
+    <Rule color="Errors">Failed|unhandled\sexception\strapped|ERROR|exception|Exception|Error\s|Chart\srendering\sfailed|A\sdirect\sX\serror\shas\soccurred\swhile\srendering\sthe\schart|NinjaTrader\shas\sdetected\syour\ssystem\sis\sentering\sa\ssuspended\sstate|NinjaTrader\shas\sdetected\syour\ssystem\shas\srecovered\sfrom\sa\ssuspended\sstate|Please\supgrade\sto\sa\sLifetime\slicense\sto\sunlock\s\'Order\sFlow\s+\'\sfunctionality|(?&lt;=\|)Unable\sto\sload\sserver\sside\sconfig\sfile|Loss\sof\sDirectX\sdevice\sdetected|Successfully\srecreated\sDirectX\sdevice|Multiple\sBartypes\swith\sthe\ssame\sBarsPeriodType\swere\sfound</Rule>
+    
+    <!-- Loading -->
+    <Rule color="Loading">(?&lt;=\|)Deleting|Cancelling|Copying|Loading|Enabling|Compiling|Restoring|Initializing|Downloading|Starting|Creating|Setting|Connecting|Shutting|Disconnecting|Flushing</Rule>
+   
+    <!-- Filepaths -->
+    <Rule color="Filepaths">((?:[a-zA-Z]\:){0,1}(?:[\\][\w .]+){1,})</Rule>
+    <Rule color="Filepaths">[^\(\(\'\"\s]+\.com</Rule>
+    
+    <!-- Punctuation -->
+    <Rule color="Punctuation">[\.\=\*\/\:\-\|]</Rule>
+    <!--<Rule color="Punctuation">(?&lt;=\d\d):(?=\d\d)</Rule>
+    <Rule color="Punctuation">(?&lt;=\d\d)-(?=\d\d)</Rule>-->
+    
+    <!-- Non-equals quotes -->
+    <Rule color="NonEqualsQuotes">(?&lt;=[^=]['"])\S([^'"]+)(?=['"])</Rule>
+	</RuleSet>
+</SyntaxDefinition>

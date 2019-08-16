@@ -1,0 +1,16 @@
+﻿<SyntaxDefinition name="XML" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+	<Color name="Comment"		      foreground="#A6CEA8" />
+	<Color name="AttributeValue"	foreground="#559CD6"/>
+	<Color name="HtmlEncoded"		  foreground="#FF4E4E"/>
+	<Color name="NodeValue"	      foreground="#D69D85"/>
+	<Color name="Punctuation"		  foreground="#676767"/>
+	<Color name="AttributeName"		foreground="#D7BA7D"/>
+	<RuleSet>
+		<Rule color="NodeValue">(?&lt;=\&gt;)[^\='"\r\n]+(?=\&lt;)|(?&lt;=&amp;gt;)[^\='"\r\n]+(?=&amp;lt;)</Rule>
+		<Rule color="HtmlEncoded">&amp;lt;|&amp;gt;</Rule>
+		<Rule color="AttributeValue">(?&lt;=["'])[^=]+(?=["'])</Rule>
+		<Rule color="Punctuation">[&lt;&gt;=]</Rule>
+		<Rule color="AttributeName">\S+(?=\=)</Rule>
+    <Rule color="Comment">&lt;!--.+--&gt;</Rule>
+	</RuleSet>
+</SyntaxDefinition>
