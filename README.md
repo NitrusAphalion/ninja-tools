@@ -4,7 +4,7 @@ A file viewer for NinjaTrader logs, traces and databases to make it easier to dr
 ##### Disclaimer
 This is a personal project. It is not affiliated with NinjaTrader in any way, shape or form. Neither is it affiliated with any of the 3rd parties mentioned in the Technical Details section below.
 
-[![](https://user-images.githubusercontent.com/12155532/63139325-21d5b300-bf9b-11e9-84f7-dbce6bafa30e.png)](http://https://user-images.githubusercontent.com/12155532/63139325-21d5b300-bf9b-11e9-84f7-dbce6bafa30e.png)
+[![](https://user-images.githubusercontent.com/12155532/63139325-21d5b300-bf9b-11e9-84f7-dbce6bafa30e.png)](https://user-images.githubusercontent.com/12155532/63139325-21d5b300-bf9b-11e9-84f7-dbce6bafa30e.png)
 
 ### Download
 See releases page
