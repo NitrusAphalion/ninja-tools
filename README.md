@@ -6,8 +6,9 @@ This is a personal project. It is not affiliated with NinjaTrader in any way, sh
 
 [![](https://user-images.githubusercontent.com/12155532/63139325-21d5b300-bf9b-11e9-84f7-dbce6bafa30e.png)](https://user-images.githubusercontent.com/12155532/63139325-21d5b300-bf9b-11e9-84f7-dbce6bafa30e.png)
 
-### Download
-See releases page
+### Installer
+[Download Here](https://github.com/NitrusAphalion/ninja-tools/releases/tag/0.1 "Download Here")
+- Only x64 at this time
 
 ### Features
 ###### Interface
