@@ -2,14 +2,14 @@
 
 namespace NinjaTools.Pages
 {
-    /// <summary>
-    /// Interaction logic for FilterControl.xaml
-    /// </summary>
-    public partial class FilterControlView : UserControl
-    {
-        public FilterControlView()
-        {
-            InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// Interaction logic for FilterControl.xaml
+	/// </summary>
+	public partial class FilterControlView : UserControl
+	{
+		public FilterControlView()
+		{
+			InitializeComponent();
+		}
+	}
 }

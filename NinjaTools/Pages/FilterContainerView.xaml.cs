@@ -2,14 +2,14 @@
 
 namespace NinjaTools.Pages
 {
-    /// <summary>
-    /// Interaction logic for FilterContainer.xaml
-    /// </summary>
-    public partial class FilterContainerView : ItemsControl
-    {
-        public FilterContainerView()
-        {
-            InitializeComponent();
-        }
-    }
+	/// <summary>
+	/// Interaction logic for FilterContainer.xaml
+	/// </summary>
+	public partial class FilterContainerView : ItemsControl
+	{
+		public FilterContainerView()
+		{
+			InitializeComponent();
+		}
+	}
 }

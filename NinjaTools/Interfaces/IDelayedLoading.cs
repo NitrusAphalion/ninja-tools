@@ -1,8 +1,8 @@
 ﻿namespace NinjaTools.Interfaces
 {
-    public interface IDelayedLoading
-    {
-        bool Loaded { get; }
-        void Load();
-    }
+	public interface IDelayedLoading
+	{
+		bool Loaded { get; }
+		void Load();
+	}
 }
